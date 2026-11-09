@@ -4,20 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d18">
-<meta name="description" content="Verificador de hashes criptográficos MD5, SHA1 y SHA256 de PuTTY, Plink y VirtualBox.">
-<title>CryptoVault | Verificación de Hashes</title>
+<meta name="theme-color" content="#101820">
+
+<title>Práctica de Criptografía | Michael Canal</title>
 
 <style>
 :root {
-    --bg: #080d18;
-    --panel: #101a2b;
-    --panel2: #142238;
-    --blue: #38bdf8;
-    --cyan: #22d3ee;
-    --text: #e8f1fc;
-    --muted: #8da2bd;
-    --border: #243751;
+    --background: #101820;
+    --surface: #192633;
+    --surface-light: #202f3d;
+    --border: #304252;
+    --primary: #6da9d2;
+    --text: #edf2f7;
+    --muted: #a2b1bf;
 }
 
 * {
@@ -28,130 +27,160 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
+    background: var(--background);
     color: var(--text);
     min-height: 100vh;
-    background-image:
-        radial-gradient(ellipse at 50% 0%, #102b47 0%, transparent 55%);
+    line-height: 1.6;
 }
 
 header {
-    padding: 23px 8%;
     border-bottom: 1px solid var(--border);
+    padding: 20px;
+}
+
+.header-content {
+    max-width: 1050px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 1px;
+.brand {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: .5px;
 }
 
-.logo span {
-    color: var(--cyan);
+.brand span {
+    color: var(--primary);
 }
 
-.status {
-    color: #4ade80;
+.header-label {
+    color: var(--muted);
     font-size: 12px;
-    letter-spacing: 1px;
 }
 
 main {
-    max-width: 1100px;
+    max-width: 1050px;
     margin: auto;
-    padding: 75px 22px;
+    padding: 55px 22px;
 }
 
-.hero {
-    text-align: center;
-    margin-bottom: 55px;
+.intro {
+    margin-bottom: 35px;
 }
 
-.tag {
-    color: var(--cyan);
+.category {
+    color: var(--primary);
     font-size: 12px;
-    letter-spacing: 3px;
     font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 h1 {
-    font-size: clamp(32px, 5vw, 52px);
-    margin: 18px 0;
-    letter-spacing: -1.5px;
+    font-size: clamp(29px, 5vw, 39px);
+    margin: 10px 0;
+    line-height: 1.2;
 }
 
-h1 span {
-    color: var(--blue);
-}
-
-.hero p {
+.description {
     color: var(--muted);
-    max-width: 600px;
-    margin: auto;
-    line-height: 1.7;
+    max-width: 720px;
     font-size: 15px;
+}
+
+.student {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 18px;
+    margin-bottom: 45px;
+}
+
+.student-item small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+.student-item strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+    margin-bottom: 4px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
 }
 
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 17px;
 }
 
 .card {
-    background: linear-gradient(145deg, var(--panel2), var(--panel));
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 25px 20px;
-    transition: .25s;
+    border-radius: 9px;
+    padding: 21px;
+    transition: border-color .2s;
+    min-width: 0;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    border-color: var(--blue);
-    box-shadow: 0 12px 35px #0005;
+    border-color: var(--primary);
 }
 
-.app-icon {
-    width: 43px;
-    height: 43px;
-    border-radius: 12px;
-    background: #12334a;
-    color: var(--cyan);
-    display: grid;
-    place-items: center;
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 19px;
-}
-
-.card h2 {
+.card h3 {
     font-size: 19px;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
 }
 
 .filename {
     color: var(--muted);
     font-size: 11px;
     overflow-wrap: anywhere;
-    min-height: 30px;
+    min-height: 38px;
+}
+
+.app-number {
+    display: inline-block;
+    background: var(--surface-light);
+    color: var(--primary);
+    border-radius: 5px;
+    padding: 3px 9px;
+    font-size: 11px;
+    margin-bottom: 13px;
 }
 
 .hashes {
     display: none;
-    margin-top: 22px;
+    margin-top: 20px;
 }
 
 .hashes.active {
     display: block;
-    animation: appear .3s ease;
+    animation: show .2s ease;
 }
 
-@keyframes appear {
-    from { opacity: 0; transform: translateY(8px); }
+@keyframes show {
+    from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -159,100 +188,122 @@ h1 span {
     margin-bottom: 17px;
 }
 
-.hash-label {
+.hash-heading {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 }
 
-.hash-label strong {
-    color: var(--cyan);
-    font-size: 11px;
-    letter-spacing: 1px;
+.hash-heading strong {
+    color: var(--primary);
+    font-size: 12px;
 }
 
-.hash-label small {
+.hash-heading small {
     color: var(--muted);
     font-size: 10px;
 }
 
 .hash-value {
-    background: #080f1c;
+    background: #111b25;
     border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 11px;
-    color: #c7d8ec;
+    padding: 10px;
+    border-radius: 5px;
+    color: #d4e0eb;
     font-family: Consolas, monospace;
     font-size: 10px;
-    line-height: 1.6;
     overflow-wrap: anywhere;
+    line-height: 1.6;
 }
 
-.copy {
-    margin-top: 7px;
+.copy-btn {
+    margin-top: 6px;
     background: transparent;
-    border: 1px solid #29435e;
-    color: var(--blue);
-    border-radius: 5px;
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 11px;
 }
 
-.copy:hover {
-    background: #17334d;
+.copy-btn:hover {
+    background: var(--surface-light);
 }
 
 .view-btn {
     width: 100%;
-    margin-top: 22px;
-    padding: 12px;
-    background: linear-gradient(90deg, #0284c7, #0891b2);
+    margin-top: 20px;
+    background: #285477;
     color: white;
-    border: none;
-    border-radius: 7px;
-    font-weight: 700;
+    border: 1px solid #396c91;
+    border-radius: 5px;
+    padding: 11px;
+    font-weight: 600;
     cursor: pointer;
-    transition: .2s;
 }
 
 .view-btn:hover {
-    filter: brightness(1.2);
+    background: #35698f;
+}
+
+.info {
+    margin-top: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 22px;
+}
+
+.info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.info strong {
+    color: var(--text);
 }
 
 footer {
-    text-align: center;
-    padding: 30px 15px;
     border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 25px 15px;
     color: var(--muted);
     font-size: 12px;
-    line-height: 2;
 }
 
 footer strong {
-    color: var(--cyan);
+    color: var(--primary);
 }
 
 @media(max-width: 800px) {
     .cards {
         grid-template-columns: 1fr;
-        max-width: 520px;
-        margin: auto;
+        max-width: 550px;
+    }
+
+    .student {
+        grid-template-columns: 1fr 1fr;
     }
 
     main {
-        padding-top: 50px;
-    }
-
-    header {
-        padding: 20px;
+        padding-top: 38px;
     }
 }
 
-@media(max-width: 400px) {
-    .status {
-        font-size: 9px;
+@media(max-width: 420px) {
+    .student {
+        grid-template-columns: 1fr;
+    }
+
+    .header-label {
+        font-size: 10px;
     }
 }
 </style>
@@ -261,146 +312,282 @@ footer strong {
 <body>
 
 <header>
-    <div class="logo">CRYPTO<span>VAULT</span></div>
-    <div class="status">● HASH DATABASE</div>
+    <div class="header-content">
+        <div class="brand">MICHAEL <span>CANAL</span></div>
+        <div class="header-label">ITLA · INFORMÁTICA FORENSE</div>
+    </div>
 </header>
 
 <main>
 
-    <section class="hero">
-        <div class="tag">DIGITAL SECURITY / CRYPTOGRAPHY</div>
-        <h1>Hash <span>Verification</span></h1>
-        <p>
-            Repositorio de valores criptográficos para la identificación
-            y verificación de integridad de archivos ejecutables.
-            Seleccione una aplicación para consultar sus huellas digitales.
+    <section class="intro">
+        <div class="category">Práctica académica · Módulo 7</div>
+
+        <h1>Criptografía y verificación de hashes</h1>
+
+        <p class="description">
+            En esta práctica se calculan y presentan las huellas
+            digitales de tres archivos ejecutables utilizando los
+            algoritmos MD5, SHA1 y SHA256. El objetivo es conocer
+            cómo se utilizan estos valores para identificar archivos
+            y comprobar su integridad.
         </p>
     </section>
 
-    <section class="cards">
+    <section class="student">
 
-        <!-- PLINK -->
-        <article class="card">
-            <div class="app-icon">P</div>
-            <h2>Plink</h2>
-            <div class="filename">plink.exe</div>
+        <div class="student-item">
+            <small>Estudiante</small>
+            <strong>Michael Canal Cabrera</strong>
+        </div>
 
-            <div class="hashes" id="plink">
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>MD5</strong><small>128 bits</small>
-                    </div>
-                    <div class="hash-value">63680900b42bf3f41f71c3a4cff80e15</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar MD5</button>
-                </div>
+        <div class="student-item">
+            <small>Matrícula</small>
+            <strong>20251618</strong>
+        </div>
 
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>SHA1</strong><small>160 bits</small>
-                    </div>
-                    <div class="hash-value">00aab5b2cee16db15081936fc17b53735bdad127</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar SHA1</button>
-                </div>
+        <div class="student-item">
+            <small>Institución</small>
+            <strong>ITLA</strong>
+        </div>
 
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>SHA256</strong><small>256 bits</small>
-                    </div>
-                    <div class="hash-value">969f36879d5716aa1a9811f43a6a6510e8f08372dbeb9695b810b9c776f39c75</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar SHA256</button>
-                </div>
-            </div>
+        <div class="student-item">
+            <small>Carrera</small>
+            <strong>Informática Forense</strong>
+        </div>
 
-            <button class="view-btn" onclick="toggleHashes('plink', this)">
-                Consultar hashes
-            </button>
-        </article>
+        <div class="student-item">
+            <small>Asignatura</small>
+            <strong>Criptografía</strong>
+        </div>
 
-        <!-- PUTTY -->
-        <article class="card">
-            <div class="app-icon">P</div>
-            <h2>PuTTY</h2>
-            <div class="filename">putty.exe</div>
-
-            <div class="hashes" id="putty">
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>MD5</strong><small>128 bits</small>
-                    </div>
-                    <div class="hash-value">0673fca154b47e4158269b4eadd23689</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar MD5</button>
-                </div>
-
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>SHA1</strong><small>160 bits</small>
-                    </div>
-                    <div class="hash-value">0456c056dfb21549163a48c2e9b10dd572c9924f</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar SHA1</button>
-                </div>
-
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>SHA256</strong><small>256 bits</small>
-                    </div>
-                    <div class="hash-value">d01fdb5aae8f112526040a39b0bfb9e27d813003178645e65f8d1cfdb2a26c87</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar SHA256</button>
-                </div>
-            </div>
-
-            <button class="view-btn" onclick="toggleHashes('putty', this)">
-                Consultar hashes
-            </button>
-        </article>
-
-        <!-- VIRTUALBOX -->
-        <article class="card">
-            <div class="app-icon">V</div>
-            <h2>VirtualBox</h2>
-            <div class="filename">VirtualBox-7.0.8-156879-Win.exe</div>
-
-            <div class="hashes" id="virtualbox">
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>MD5</strong><small>128 bits</small>
-                    </div>
-                    <div class="hash-value">5277068968032af616e7e4cc86f1d3c2</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar MD5</button>
-                </div>
-
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>SHA1</strong><small>160 bits</small>
-                    </div>
-                    <div class="hash-value">6e3e2912d2131bb249f416088ee49088ab841580</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar SHA1</button>
-                </div>
-
-                <div class="hash-item">
-                    <div class="hash-label">
-                        <strong>SHA256</strong><small>256 bits</small>
-                    </div>
-                    <div class="hash-value">8a2da26ca69c1ddfc50fb65ee4fa8f269e692302046df4e2f48948775ba6339a</div>
-                    <button class="copy" onclick="copyHash(this)">Copiar SHA256</button>
-                </div>
-            </div>
-
-            <button class="view-btn" onclick="toggleHashes('virtualbox', this)">
-                Consultar hashes
-            </button>
-        </article>
+        <div class="student-item">
+            <small>Actividad</small>
+            <strong>Práctica Módulo 7</strong>
+        </div>
 
     </section>
+
+    <section>
+        <div class="section-heading">
+            <h2>Archivos analizados</h2>
+            <p>Seleccione una aplicación para consultar sus valores hash.</p>
+        </div>
+
+        <div class="cards">
+
+            <!-- PLINK -->
+
+            <article class="card">
+                <div class="app-number">01 · EJECUTABLE</div>
+                <h3>Plink</h3>
+                <div class="filename">plink.exe</div>
+
+                <div class="hashes" id="plink">
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>MD5</strong>
+                            <small>128 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            63680900b42bf3f41f71c3a4cff80e15
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar MD5
+                        </button>
+                    </div>
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>SHA1</strong>
+                            <small>160 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            00aab5b2cee16db15081936fc17b53735bdad127
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar SHA1
+                        </button>
+                    </div>
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>SHA256</strong>
+                            <small>256 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            969f36879d5716aa1a9811f43a6a6510e8f08372dbeb9695b810b9c776f39c75
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar SHA256
+                        </button>
+                    </div>
+
+                </div>
+
+                <button class="view-btn"
+                    onclick="toggleHashes('plink', this)">
+                    Consultar hashes
+                </button>
+            </article>
+
+            <!-- PUTTY -->
+
+            <article class="card">
+                <div class="app-number">02 · EJECUTABLE</div>
+                <h3>PuTTY</h3>
+                <div class="filename">putty.exe</div>
+
+                <div class="hashes" id="putty">
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>MD5</strong>
+                            <small>128 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            0673fca154b47e4158269b4eadd23689
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar MD5
+                        </button>
+                    </div>
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>SHA1</strong>
+                            <small>160 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            0456c056dfb21549163a48c2e9b10dd572c9924f
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar SHA1
+                        </button>
+                    </div>
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>SHA256</strong>
+                            <small>256 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            d01fdb5aae8f112526040a39b0bfb9e27d813003178645e65f8d1cfdb2a26c87
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar SHA256
+                        </button>
+                    </div>
+
+                </div>
+
+                <button class="view-btn"
+                    onclick="toggleHashes('putty', this)">
+                    Consultar hashes
+                </button>
+            </article>
+
+            <!-- VIRTUALBOX -->
+
+            <article class="card">
+                <div class="app-number">03 · EJECUTABLE</div>
+                <h3>VirtualBox</h3>
+                <div class="filename">
+                    VirtualBox-7.0.8-156879-Win.exe
+                </div>
+
+                <div class="hashes" id="virtualbox">
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>MD5</strong>
+                            <small>128 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            5277068968032af616e7e4cc86f1d3c2
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar MD5
+                        </button>
+                    </div>
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>SHA1</strong>
+                            <small>160 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            6e3e2912d2131bb249f416088ee49088ab841580
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar SHA1
+                        </button>
+                    </div>
+
+                    <div class="hash-item">
+                        <div class="hash-heading">
+                            <strong>SHA256</strong>
+                            <small>256 bits</small>
+                        </div>
+                        <div class="hash-value">
+                            8a2da26ca69c1ddfc50fb65ee4fa8f269e692302046df4e2f48948775ba6339a
+                        </div>
+                        <button class="copy-btn" onclick="copyHash(this)">
+                            Copiar SHA256
+                        </button>
+                    </div>
+
+                </div>
+
+                <button class="view-btn"
+                    onclick="toggleHashes('virtualbox', this)">
+                    Consultar hashes
+                </button>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="info">
+        <h2>Sobre los algoritmos utilizados</h2>
+
+        <p>
+            <strong>MD5:</strong> genera una huella digital de 128 bits.
+            Se incluye como referencia, aunque actualmente no se
+            recomienda para aplicaciones de seguridad.
+        </p>
+
+        <p>
+            <strong>SHA1:</strong> produce un resumen de 160 bits.
+            Permite identificar archivos, pero presenta limitaciones
+            de seguridad frente a ataques de colisión.
+        </p>
+
+        <p>
+            <strong>SHA256:</strong> pertenece a la familia SHA-2
+            y genera un resumen de 256 bits. Ofrece mayor resistencia
+            criptográfica que MD5 y SHA1.
+        </p>
+
+        <p>
+            Estos valores permiten comparar archivos y detectar
+            modificaciones en su contenido.
+        </p>
+    </section>
+
 </main>
 
 <footer>
-    <strong>CRYPTOVAULT</strong> | Digital Integrity Project<br>
-    Práctica de Criptografía - ITLA<br>
-    MD5 · SHA1 · SHA256
+    <strong>Michael Canal Cabrera</strong> · Matrícula 20251618<br>
+    Instituto Tecnológico de las Américas (ITLA)<br>
+    Práctica de Criptografía · Módulo 7 · 2026
 </footer>
 
 <script>
+
 function toggleHashes(id, button) {
+
     const selected = document.getElementById(id);
     const isOpen = selected.classList.contains("active");
 
@@ -419,18 +606,30 @@ function toggleHashes(id, button) {
 }
 
 async function copyHash(button) {
-    const value = button.parentElement.querySelector(".hash-value").textContent;
+
+    const value = button.parentElement
+        .querySelector(".hash-value").textContent.trim();
+
+    const originalText = button.textContent;
 
     try {
         await navigator.clipboard.writeText(value);
+
         button.textContent = "¡Copiado!";
+
         setTimeout(() => {
-            button.textContent = "Copiar " + button.textContent.replace("Copiar ", "");
+            button.textContent = originalText;
         }, 1500);
+
     } catch (error) {
         button.textContent = "No se pudo copiar";
+
+        setTimeout(() => {
+            button.textContent = originalText;
+        }, 1500);
     }
 }
+
 </script>
 
 </body>
